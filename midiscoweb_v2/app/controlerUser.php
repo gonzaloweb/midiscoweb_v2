@@ -178,13 +178,15 @@ function ctlUserBorrar()
 
 function ctlUserDetalles()
 {
-    $datos = modeloUserGet($_GET['id']);
-    $userid = $_GET['id'];
-    $clave = $datos['password'];
-    $nombre = $datos['nombre'];
-    $correo = $datos['correo'];
-    $plan = PLANES[$datos['plan']];
-    $estado = ESTADOS[$datos['estado']];
+    $datos = modeloUserGet($_GET['id']); //
+    
+    $userid = $datos->id;
+    $clave = $datos->password;
+    $clave2 = $datos->password;
+    $nombre = $datos->nombre;
+    $correo = $datos->correo;
+    $plan = PLANES[$datos->plan];
+    $estado = ESTADOS[$datos->estado];
 
     include_once 'plantilla/detallesUser.php';
 }
